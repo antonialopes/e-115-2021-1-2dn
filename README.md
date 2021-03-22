@@ -1,7 +1,7 @@
 # e-115-2021-1-2dn
-Repositório de TODOS os projetos do 2DM
+Repositório de TODOS os projetos do 2DN
 
-Este repositório é criado com o prósito de disponibilizar hispedagem para os projetos. [Acesse Aqui](https://senai115.github.io/e-115-2021-1-2dn/)
+Este repositório foi criado com o prósito de disponibilizar hospedagem para os projetos. [Acesse Aqui](https://senai115.github.io/e-115-2021-1-2dn/)
 
 (*) Esta Página é mantida integralmente pelos alunos do E-115-2021-1-2DN,
 
