@@ -1,6 +1,12 @@
-# SQUAD
+# pokemon-memory
+Jogo da Memória sobre Pokémon feito com HTML, CSS e JS
 
-Enumere abaixo quem são os integrantes e o papel de cada um.
+Integrantes:
 
-1. Danilo (Frontend)
-2. Bittencourt (Backend)
+Anderson Elias 
+Gabriel de Souza 
+Rosana Araujo
+Jeferson Cavalcante
+Mauricio Alves
+
+
