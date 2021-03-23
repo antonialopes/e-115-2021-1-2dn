@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/pokemon/pokebola.png">
+  </head>
+  <body>
+     <header class="main-header">
+      <div class="navbar">
+           
+      </div>
+    </header>
+
+    <main class="main-body">
+      <div class="content">
+
+        <div class="header-content">
+          <img id="logo-site" src="./img/logos/logo-jogo.png">
+
+            <div class="header-title">
+              <p class="intro">Jogo da Memória</p>
+            </div>
+        </div>
+
+        <div class="conteudo-aqui">
+
+          <div class="pokeball">
+            <div class="line">
+              <div class="main-dot">
+                <div class="dot">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="flex-center">
+          <div class="cartas-temas">
+            <label for="temas">Temas</label><br>
+            <select id="temas" onchange="alteraTema()">
+              <option value="none">Selecionar</option>
+              <option value="pokemon">Pokémon</option>
+              <option value="lol">League of Legends</option>
+              <option value="marvel">Marvel</option>
+            </select>
+          </div>
+          <div class="jogo-dificuldade">
+            <label for="dificuldade">Dificuldade</label><br>
+            <select id="dificuldade" onchange="alteraTema()">
+              <option value="facil" selected>Fácil</option>
+              <option value="medio">Médio</option>
+              <option value="dificil">Difícil</option>
+            </select>
+          </div>
+
+          <strong><span id="contador">Tentativas: </span></strong>
+
+        </div>
+
+        <div id="cardBoard">
+        </div>
+
+    </main>
+
+    <footer class="main-footer">
+      <p>© Jogo da<span> Memória</span></p>
+    </footer>
+    
+    <script src="main.js"></script>
+  </body>
+</html>
