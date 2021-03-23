@@ -1,110 +1,131 @@
-html {
-	height: 100%
+#contador{
+  color:black;
+  font-size: 18px;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(127, 127, 240);
+}
+
+.seletor {
+  margin-top: 240px;
+  margin-left: 120px;
+}
+
+.btn{
+  width: 300px;
+  top: 0px;
+  position: relative;
+  display: block;
+  color: rgb(12, 12, 12);
+  font-size: 14px;
+  font-family: "montserrat";
+  text-decoration: none;
+  margin: 30px 0;
+  border: 2px solid #759aff;
+  padding: 14px 60px;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 1s all ease;
+}
+.btn::before{
+  background: #92baee;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: -1;
+  transition: all 0.6s ease;
+}
+
+.btn2:hover::before{
+  height: 100%;
+}
+
+.btn2::before{
+  width: 100%;
+  height: 0%;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-	font-family: 'Amatic SC', cursive;
-	height: 100%;
-	background: #FF9432;
-	
+  height: 100vh;
+  display: flex;
 }
 
-#bg-alteravel {
-	z-index: -1;
-	position: fixed;
-	right: 0;
-	bottom: 0;
+  /* Parte da <Section> do HTML */
+.memory-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+
+  margin-top: 20px;
+  padding-bottom: 15px;
+}
+  
+.memory-card {
+  width: calc(25% - 10px); /* (Largura) Cada carta vai ocupar 25% do tam total - Dividindo em 4 colunas */
+  height: calc(33.333% - 10px); /* (Altura) Cada carta vai ocupar 33.3% do tam total - Dividindo em 3 linhas */
+  margin: 5px;
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+  transform: scale(1);
+  transform-style: preserve-3d;
+
+  transition: transform .5s;
 }
 
-.titulo {
-	width: 100%;
-	text-align: center;
-	margin: 3% auto;
+  .front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  position: absolute;
+  border-radius: 5px;
+  background: #333366;
+  backface-visibility: hidden; /* Aparecer a Face da outra imagem */
 }
 
-h1 {
-	color: #ffda91;
-	font-size: 70px;
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
 }
 
-.info {
-	margin: 0 auto;
-	max-width: 600px;
-	padding: 1%;
-	background: #ffda91;
-	width: 100%;
-	text-align: center;	
+.memory-card.flip {
+  transform: rotateY(180deg); /* Define o angulo de rotação no EIXO Y */
 }
 
-#botao-jogar:hover {
-	transform: scale(1.2);
+.front-face {
+  transform: rotateY(180deg); /* Define o angulo de rotação no EIXO Y */
 }
 
-button {
-	border: none;
-	background: none;	
+@media screen and (max-width: 600px){
+  body{
+    display: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .memory-game{
+    margin-top: 20%;
+    width: 600px;
+    height: 600px;
+  }
+
+  .seletor{
+    margin-top: 30px;
+    margin-left: 40%;
 }
 
-button:hover {
-	background-color: white;
-	border-radius: 5px;
-}
 
-h2 {
-	font-size: 35px;
-	text-decoration: underline 5px dashed white;
-
-}
-
-.texto-info {
-	font-size: 28px;
-	margin-bottom: 15px;
-
-}
-
-a {
-	text-decoration: none;
-	color: black;
-}
-
-a:hover {
-	color: white;
-}
-
-.score {
-	text-align: center;
-	width: 100%;
-	height: 55px;
-	background: #fff;
-	margin-bottom: 2%;
-}
-
-a img {
-	padding-bottom: 3%;
-	display: inline;
-}
-
-.texto-score {
-	font-size: 35px;
-	display: inline;
-}
-
-.botao {
-	margin: 0 auto;
-	text-align: center;
-}
-
-.col-10 {
-	margin: 0 auto;
-	text-align: center;
-	max-width: 980px;	
-}
-
-.sombra:hover {
-	box-shadow: 0 0 10px rgb(245 241 168);
-}
-
-.sombra-acerto {
-	box-shadow: 0 0 20px rgb(107 222 102);
-	transition: 1s all;
-}
+  

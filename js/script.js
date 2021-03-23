@@ -1,207 +1,171 @@
-var jogavel = document.getElementById("div-jogavel");
-document.getElementById("div-jogavel").style.display = 'none';
+  // Atribui a classe "memory-card" dentro da constante: "cards" 
+  const cards = document.querySelectorAll('.memory-card'); 
 
-var numCartas = 0;
-var tamanhoCarta;
-function buscaDificuldade(value) { // Função parar selecionar a dificuldade
-	if(value == 1) {
-		document.getElementById("medio").style = `display:none`;
-		document.getElementById("dificil").style = `display:none`;		
-		tamanhoCarta = "width=\"160px\" height=\"240px\"";
-		numCartas = 12;
-	} else if(value == 2) {
-		document.getElementById("facil").style = `display:none`;
-		document.getElementById("dificil").style = `display:none`;		
-		tamanhoCarta = "width=\"144px\" height=\"216px\"";
-		numCartas = 24;
-	} else {
-		document.getElementById("medio").style = `display:none`;
-		document.getElementById("facil").style = `display:none`;
-		tamanhoCarta = "width=\"128px\" height=\"192px\"";
-		numCartas = 48;
-	}
-	document.getElementById("divbuttondificuldadeesq").style = `display:none`;
-	document.getElementById("divbuttondificuldadedir").style = `display:none`;	
-	habilitaDeck();
+  var deckmarvel // Criando uma variavel pra fazer uso dela dentro do vetor
+  fetch("./json/deckmarvel.json") // Caminho do nosso diretório de imagens 
+  .then(response => response.json())
+  .then(data => { deckmarvel = data
+  })
+  
+  var deckdc
+  fetch("./json/deckdc.json") // Criando uma variavel pra fazer uso dela dentro do vetor
+  .then(response => response.json()) // Caminho do nosso diretório de imagens 
+  .then(data => { deckdc = data
+  })
+
+  /* LET = Variavel local. só funciona dentro do do Bloco*/
+  let hasFlippedCard = false; 
+  let lockBoard = false; // Inicia em "False" para liberar as cartas
+  let firstCard, secondCard;
+
+  function flipCard() { // Função para mudança das cartas 
+    if (lockBoard) return; // Bloquear a virada da 3° cartão
+   if (this === firstCard) return; 
+
+    this.classList.add('flip');
+
+    if (!hasFlippedCard) {
+      hasFlippedCard = true;
+      firstCard = this;
+      return;
+    }
+
+    secondCard = this;
+    checkForMatch();
+    pontos();
+  }
+
+  // Função para checagem de duas cartas (firstCard, secondCard) se retornar verdadeiro ou false
+  function checkForMatch() {
+    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+// Pergunta, se for "True" habilita a Função de manter as duas cartas viradas, caso "false" habilita a função de virar as cartas;
+    isMatch ? disableCards() : unflipCards(); 
+  }
+
+  function disableCards() { // Desabilita as Funções da 1° e 2° carta;
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+
+   resetBoard();
+  }
+
+  // Desabilita a função flip caso as imagens seja diferentes
+  function unflipCards() {
+    lockBoard = true;
+
+  // Desabilita a função flip caso as imagens seja diferentes
+    setTimeout(() => {
+      firstCard.classList.remove('flip');
+      secondCard.classList.remove('flip');
+
+     resetBoard();
+    }, 1500);
+  }
+  
+  // Limpa, atribui "false" e "null" as variaveis após executar as funções
+ function resetBoard() { 
+   [hasFlippedCard, lockBoard] = [false, false];
+   [firstCard, secondCard] = [null, null];
+ }
+
+// Altera a posição de cada card
+  (function shuffle() {
+   cards.forEach(card => { 
+     let ramdomPos = Math.floor(Math.random() * 12); // Cada card vai receber um numero randomico
+     card.style.order = ramdomPos;
+   });
+ })();
+
+  cards.forEach(card => card.addEventListener('click', flipCard));
+
+
+/*
+    for (var i; i < 12; i++){
+    document.getElementsByClassName("cartas")[i].src=deckdc.cartas[i]
+    document.getElementsByClassName("cartas2")[i].src=deckdc.cartas2[0]
+  }
+*/
+ 
+/*
+    for (var i; i < 12; i++){
+      document.getElementsByClassName("cartas")[i].src=deckmarvel.cartas[i]
+      document.getElementsByClassName("cartas2")[i].src=deckmarvel.cartas2[0]
+  }
+*/
+function trocaTemaMarvel(){
+
+/* ---------------- Troca cartas - Jogo DC ------------------------*/
+
+    document.getElementsByClassName("cartas")[0].src=deckdc.cartas[0]
+    document.getElementsByClassName("cartas")[1].src=deckdc.cartas[1]
+    document.getElementsByClassName("cartas")[2].src=deckdc.cartas[2]
+    document.getElementsByClassName("cartas")[3].src=deckdc.cartas[3]
+    document.getElementsByClassName("cartas")[4].src=deckdc.cartas[4]
+    document.getElementsByClassName("cartas")[5].src=deckdc.cartas[5]
+    document.getElementsByClassName("cartas")[6].src=deckdc.cartas[6]
+    document.getElementsByClassName("cartas")[7].src=deckdc.cartas[7]
+    document.getElementsByClassName("cartas")[8].src=deckdc.cartas[8]
+    document.getElementsByClassName("cartas")[9].src=deckdc.cartas[9]
+    document.getElementsByClassName("cartas")[10].src=deckdc.cartas[10]
+    document.getElementsByClassName("cartas")[11].src=deckdc.cartas[11]
+
+    document.getElementsByClassName("cartas2")[0].src=deckdc.cartas2[0]
+    document.getElementsByClassName("cartas2")[1].src=deckdc.cartas2[0]
+    document.getElementsByClassName("cartas2")[2].src=deckdc.cartas2[0]
+    document.getElementsByClassName("cartas2")[3].src=deckdc.cartas2[0]
+    document.getElementsByClassName("cartas2")[4].src=deckdc.cartas2[0]
+    document.getElementsByClassName("cartas2")[5].src=deckdc.cartas2[0]
+    document.getElementsByClassName("cartas2")[6].src=deckdc.cartas2[0]
+    document.getElementsByClassName("cartas2")[7].src=deckdc.cartas2[0]
+    document.getElementsByClassName("cartas2")[8].src=deckdc.cartas2[0]
+    document.getElementsByClassName("cartas2")[9].src=deckdc.cartas2[0]
+    document.getElementsByClassName("cartas2")[10].src=deckdc.cartas2[0]
+    document.getElementsByClassName("cartas2")[11].src=deckdc.cartas2[0]
+
 }
 
-var dificuldade = 0;
-function habilitaDeck() { // Função para habilitar a escolha do temas do baralho
-	var display = document.getElementById("habilitadivdecks").style.display;
-	if(display == "none")
-        document.getElementById("habilitadivdecks").style.display = '';	
-}
+function trocaTemaDc(){ 
+    
+/* ------------------- Troca cartas - Jogo Marvel --------------------------*/
 
-function backgroundDeck(id){ // Função para dar um preview ao usuário dos temas de baralho
-	if(id == "buttonnaruto") {
-		document.getElementById('bg-alteravel').src='imagens/bg-naruto-sm.png';
-		document.body.style.background = '#FF9432';
-		document.getElementById('info').style.background = '#ffda91';
-		document.getElementById('titulo').style.color = '#ffda91';
-		document.getElementById('jogar').src='imagens/botao-jogar.png';
-	} else if(id == "buttonpokemon") {
-		document.getElementById('bg-alteravel').src='imagens/bg-pokemon-sm.png';
-		document.body.style.background = '#D7F2B1';
-		document.getElementById('info').style.background = '#A7D774';
-		document.getElementById('titulo').style.color = '#A7D774';
-		document.getElementById('jogar').src='imagens/botao-jogar-p.png';
-	} else {
-		document.getElementById('bg-alteravel').src='imagens/bg-yugi-sm.png';
-		document.body.style.background = '#0785B5';
-		document.getElementById('info').style.background = '#ACD9D6';
-		document.getElementById('titulo').style.color = '#ACD9D6';
-		document.getElementById('jogar').src='imagens/botao-jogar-y.png';
-	}
-}
+    document.getElementsByClassName("cartas")[0].src=deckmarvel.cartas[0]
+    document.getElementsByClassName("cartas")[1].src=deckmarvel.cartas[1]
+    document.getElementsByClassName("cartas")[2].src=deckmarvel.cartas[2]
+    document.getElementsByClassName("cartas")[3].src=deckmarvel.cartas[3]
+    document.getElementsByClassName("cartas")[4].src=deckmarvel.cartas[4]
+    document.getElementsByClassName("cartas")[5].src=deckmarvel.cartas[5]
+    document.getElementsByClassName("cartas")[6].src=deckmarvel.cartas[6]
+    document.getElementsByClassName("cartas")[7].src=deckmarvel.cartas[7]
+    document.getElementsByClassName("cartas")[8].src=deckmarvel.cartas[8]
+    document.getElementsByClassName("cartas")[9].src=deckmarvel.cartas[9]
+    document.getElementsByClassName("cartas")[10].src=deckmarvel.cartas[10]
+    document.getElementsByClassName("cartas")[11].src=deckmarvel.cartas[11]
 
-var deckBaralho;
-var name;
-function baralhoDeck(id) { // Função pra selecionar o tema
-	if(id == "buttonnaruto") {
-		deckBaralho = cardsNaruto[24].path;
-		name = "naruto";
-		document.getElementById("buttonpokemon").style = `display:none`;
-		document.getElementById("buttonyugioh").style = `display:none`;
-	} else if(id == "buttonpokemon") {
-		deckBaralho = cardsPokemon[24].path;
-		name = "pokemon";
-		document.getElementById("buttonnaruto").style = `display:none`;
-		document.getElementById("buttonyugioh").style = `display:none`;
-	} else {
-		deckBaralho = cardsYugioh[24].path;
-		name = "yugioh";
-		document.getElementById("buttonpokemon").style = `display:none`;
-		document.getElementById("buttonnaruto").style = `display:none`;
-	}
-	document.getElementById("divbuttonbaralhodir").style = `display:none`;
-	document.getElementById("divbuttonbaralhoesq").style = `display:none`;
-	habilitaBotaoJogar();
-}
+    document.getElementsByClassName("cartas2")[0].src=deckmarvel.cartas2[0]
+    document.getElementsByClassName("cartas2")[1].src=deckmarvel.cartas2[0]
+    document.getElementsByClassName("cartas2")[2].src=deckmarvel.cartas2[0]
+    document.getElementsByClassName("cartas2")[3].src=deckmarvel.cartas2[0]
+    document.getElementsByClassName("cartas2")[4].src=deckmarvel.cartas2[0]
+    document.getElementsByClassName("cartas2")[5].src=deckmarvel.cartas2[0]
+    document.getElementsByClassName("cartas2")[6].src=deckmarvel.cartas2[0]
+    document.getElementsByClassName("cartas2")[7].src=deckmarvel.cartas2[0]
+    document.getElementsByClassName("cartas2")[8].src=deckmarvel.cartas2[0]
+    document.getElementsByClassName("cartas2")[9].src=deckmarvel.cartas2[0]
+    document.getElementsByClassName("cartas2")[10].src=deckmarvel.cartas2[0]
+    document.getElementsByClassName("cartas2")[11].src=deckmarvel.cartas2[0]
+ 
+  }
+  
+  var tentativas = 0;
+  var text = "Tentativas : ";
 
-function habilitaBotaoJogar() { // Função para habilitar o botão
-	document.getElementById("botao-jogar").style.display = '';
-}
+  function pontos(){
+    if('flip'){
+      tentativas++;
+    }
+    let cont = document.getElementById("contador");
+    cont.innerHTML = text + tentativas;
+  }
 
-function iniciarJogo(){	// Função para ocultar os elementos de setup do jogo
-	document.getElementById("info").style.display = 'none';
-	document.getElementById("div-jogavel").style.display = '';
-	cartas();
-}
+  
 
-function cartas(){ // Função para chamar as iniciar o jogo
-	var baralhoEmbaralhado = embaralharCartas();
-	var i;	
-	for(i = 0; i < numCartas; i++) {		
-		document.getElementById("baralho").innerHTML += `
-			<img style="border-style: solid;  border-width: 2px;"  
-			name="${name}" class="sombra"
-			src="${deckBaralho}" ${tamanhoCarta} id="${i}"
-			onclick="cartasChange(this.alt,this.id,this.name), comparaCartas(this.id)"			
-			alt="${baralhoEmbaralhado[i]}">`;
-	}
-	document.getElementById("buttoninicia").onclick = '';
-}
-
-function embaralharCartas() { // Função embaralhar as cartas
-	if(numCartas == 12)
-		var ordemCartas = [0,0,1,1,2,2,3,3,4,4,5,5];
-	else if(numCartas == 24)
-		var ordemCartas = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11];
-	else
-		var ordemCartas = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,
-			13,13,14,14,15,15,16,16,17,17,18,18,19,19,20,20,21,21,22,22,23,23];		
-	var indice = ordemCartas.length, auxiliar, indiceAleatorio;
-	while (indice !== 0) {
-		indiceAleatorio = Math.floor(Math.random() * indice);
-		indice -= 1;
-		auxiliar = ordemCartas[indice];
-		ordemCartas[indice] = ordemCartas[indiceAleatorio];
-		ordemCartas[indiceAleatorio] = auxiliar;
-	}
-	return ordemCartas;	
-}
-
-function cartasChange(alt,id,name){	// Função para virar as cartas ao serem clicadas
-	if(name == "naruto") {
-		document.getElementById(id).src = `${cardsNaruto[alt].path}`;		
-	}else if(name == "pokemon") {
-		document.getElementById(id).src = `${cardsPokemon[alt].path}`;
-	}else {
-		document.getElementById(id).src = `${cardsYugioh[alt].path}`;
-	}	
-}
-
-var pontuacao = 0;
-var numTentativas = 0;
-var flagTime = false;
-var numPares = 0;
-var guardaId = [];
-var arrayComparador = [];
-var incrementa = 0;
-function comparaCartas(id) { // Função para comparar a igualdade do par de cartas clicadas	
-	guardaId.push(document.getElementById(id).getAttribute("id"));
-	arrayComparador.push(document.getElementById(id).getAttribute("alt"));
-	incrementa++;
-	if(incrementa == 2) {	
-		document.getElementById(guardaId[1]).addEventListener("onclick", function() {
-			document.getElementById(guardaId[1]).onmouseout = 'comparaCartasFinal';
-		});
-	}	
-	if(incrementa == 2) {	
-		if(flagTime == false) {
-			flagTime = true;
-			startTime();
-		}
-		if((arrayComparador[0] == arrayComparador[1]) && (guardaId[0] != guardaId[1])) {			
-			document.getElementById(guardaId[1]).class =+ `sombra-acerto:hover`;
-			document.getElementById(guardaId[0]).class =+ `sombra-acerto:hover`;
-			document.getElementById(guardaId[0]).onclick = ``;
-			document.getElementById(guardaId[1]).onclick = ``;
-			pontuacao++;
-			document.getElementById("pontuacao").innerHTML = pontuacao;			
-			numTentativas++;
-			document.getElementById("tentativas").innerHTML = numTentativas;		
-			arrayComparador.pop();
-			arrayComparador.pop();
-			guardaId.pop();
-			guardaId.pop();			
-			incrementa = 0;
-		} else {
-			setTimeout(
-			function viraCartas(){
-			document.getElementById(guardaId[0]).src = `${deckBaralho}`;
-			document.getElementById(guardaId[1]).src = `${deckBaralho}`;
-			arrayComparador.pop();
-			arrayComparador.pop();
-			guardaId.pop();
-			guardaId.pop();
-			incrementa=0;
-			}, 500);
-		}
-		if(pontuacao == (numCartas / 2))
-			pauseTime();
-		numTentativas++;
-		document.getElementById("tentativas").innerHTML = numTentativas;				
-	}
-}
-
-var tempo = 1000;
-var cronometro;
-function startTime(){ //Função para iniciar o tempo
-    var cron_minutos = document.getElementById("minutos");
-    var cron_segundos = document.getElementById("segundos");
-    var m = 0;
-    var s = 0;
-
-   cronometro = setInterval(function() {
-        cron_minutos.innerHTML = m < 10 ? '0'+ m : m;
-        cron_segundos.innerHTML = s < 10 ? '0'+ s : s;
-
-        if (s < 59) { s += 1}
-        else if (m < 59) {s = 0; m+=1} 
-    },tempo);
-}
-
-function pauseTime(){  // Função para encerrar o tempo
-    clearInterval(cronometro);
-}
