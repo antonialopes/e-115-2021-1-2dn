@@ -2,7 +2,7 @@
 
 
 # E-115-2021-1-2DN
-Repositório de TODOS os projetos do 2DN
+Repositório do SQUAD 3
 
 # Projeto Atual: 2º Trabalho
 Vamos criar um sistema que acesse dados em um servidor remoto, consumindo uma API;
