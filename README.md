@@ -1,4 +1,7 @@
-# E-115-2021-1-2DN    555
+# BRANCH SQUAD 3!
+
+
+# E-115-2021-1-2DN
 Repositório de TODOS os projetos do 2DN
 
 # Projeto Atual: 2º Trabalho
@@ -19,17 +22,6 @@ Requisitos:
 
 Prazo: 02 semanas (26/04)
 
-## Squad1
-![image](https://user-images.githubusercontent.com/19345272/114796496-7ed4ce00-9d67-11eb-9e7e-4fc401d805c4.png)
-
-## Squad2
-![image](https://user-images.githubusercontent.com/19345272/114796516-8f854400-9d67-11eb-8919-8c177605dbe0.png)
-
 ## Squad3
 ![image](https://user-images.githubusercontent.com/19345272/114796529-9a3fd900-9d67-11eb-8af6-eda90472e428.png)
 
-## Squad4
-![image](https://user-images.githubusercontent.com/19345272/114796549-a9268b80-9d67-11eb-9a08-7f3212067ed2.png)
-
-## Squad5
-![image](https://user-images.githubusercontent.com/19345272/114796631-da06c080-9d67-11eb-93e6-0556e8b9a377.png)
