@@ -21,6 +21,12 @@ Prazo: 02 semanas (26/04)
 
 ## Squad1
 ## Squad2
+  Antonia Euran Lopes Pinto
+  Breno Ramos Dos Santos
+  Edy Lucas Sirqueira Pinto
+  Douglas de Souza Felipe
+  Ruth Santos Pereira da Silva
+  Vinicius Borges de Souza
 ## Squad3
 ## Squad4
 ## Squad5
