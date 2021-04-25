@@ -23,7 +23,7 @@ function pesquisaJogo(){
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5',],
+                labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5'],
                 datasets: [{
                     label: namejson,
                     data: [games[0].normalPrice, games[1].normalPrice, games[2].normalPrice, games[3].normalPrice, games[4].normalPrice],
@@ -60,7 +60,7 @@ function pesquisaJogo(){
         myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5',],
+                labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5'],
                 datasets: [{
                     label: namejson,
                     data: [games[0].normalPrice, games[1].normalPrice, games[2].normalPrice, games[3].normalPrice, games[4].normalPrice],
@@ -96,7 +96,7 @@ function pesquisaJogo(){
         myChart = new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5',],
+                labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5'],
                 datasets: [{
                     label: namejson,
                     data: [games[0].normalPrice, games[1].normalPrice, games[2].normalPrice, games[3].normalPrice, games[4].normalPrice],
@@ -132,7 +132,7 @@ function pesquisaJogo(){
         myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5',],
+                labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5'],
                 datasets: [{
                     label: namejson,
                     data: [games[0].normalPrice, games[1].normalPrice, games[2].normalPrice, games[3].normalPrice, games[4].normalPrice],
@@ -181,7 +181,7 @@ function geraGraphCard() {
             <div class="card">
                 <canvas class="${classes[i]}" id=${ids[i]}></canvas>
                 <div class="card-body">
-                    <h5 class="card-title">${nomeJogo}</h5>
+                    <h5 class="card-title">A A A</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>
