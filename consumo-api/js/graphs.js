@@ -1,5 +1,8 @@
 function pesquisaJogo(){
+    
+    
     let gamename = document.getElementById("searchGame").value
+    
     var url = `https://www.cheapshark.com/api/1.0/deals?title=${gamename}`
     
     console.log(url)
