@@ -11,13 +11,16 @@ function pesquisaJogo(){
     .then(response => response.json())
 
     .then(json => {
-        let namejson = json[0].title
+        var namejson = json[0].title
         var games = json;
         console.log(games);
         
-
+        if(gamename.myChart1 != null){
+            gamename.myChart1.destroy()
+        }
+        
         var ctx = document.getElementById('myChart1').getContext('2d');
-        var myChart1 = new Chart(ctx, {
+        var myChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5',],
@@ -50,8 +53,9 @@ function pesquisaJogo(){
                     }
                 }
             }
-
+            
         });
+
         ctx = document.getElementById('myChart2').getContext('2d');
         myChart = new Chart(ctx, {
             type: 'bar',
@@ -160,17 +164,15 @@ function pesquisaJogo(){
             }
 
         });
+
     })
- 
-}
 
-
-var ids = ["myChart1", "myChart2", "myChart3", "myChart4"]
 var classes = ["line-chart", "bar-chart", "radar-chart", "doughnut-chart"]
 
 function geraGraphCard() {
     
-    
+    var nomeJogo = gamename
+    var ids = ["myChart1", "myChart2", "myChart3", "myChart4"]
     var container = document.getElementById(`gridGraphs`)
     container.innerHTML = ""
     for (let i = 0; i < ids.length; i++) {
@@ -180,7 +182,7 @@ function geraGraphCard() {
             <div class="card">
                 <canvas class="${classes[i]}" id=${ids[i]}></canvas>
                 <div class="card-body">
-                    <h5 class="card-title">$</h5>
+                    <h5 class="card-title">${nomeJogo}</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
                         additional content. This content is a little bit longer.</p>
                 </div>
@@ -191,8 +193,4 @@ function geraGraphCard() {
 
 geraGraphCard()
 
-
-
-
-
-
+}
