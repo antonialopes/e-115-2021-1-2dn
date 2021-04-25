@@ -15,8 +15,8 @@ function pesquisaJogo(){
         var games = json;
         console.log(games);
         
-        if(gamename.myChart1 != null){
-            gamename.myChart1.destroy()
+        if(gamename.myChart != null){
+            gamename.myChart.destroy()
         }
         
         var ctx = document.getElementById('myChart1').getContext('2d');
@@ -26,7 +26,7 @@ function pesquisaJogo(){
                 labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5',],
                 datasets: [{
                     label: namejson,
-                    data: [games[0].dealRating, games[1].dealRating, games[2].dealRating, games[3].dealRating, games[4].dealRating],
+                    data: [games[0].normalPrice, games[1].normalPrice, games[2].normalPrice, games[3].normalPrice, games[4].normalPrice],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -63,7 +63,7 @@ function pesquisaJogo(){
                 labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5',],
                 datasets: [{
                     label: namejson,
-                    data: [games[0].dealRating, games[1].dealRating, games[2].dealRating, games[3].dealRating, games[4].dealRating],
+                    data: [games[0].normalPrice, games[1].normalPrice, games[2].normalPrice, games[3].normalPrice, games[4].normalPrice],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -99,7 +99,7 @@ function pesquisaJogo(){
                 labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5',],
                 datasets: [{
                     label: namejson,
-                    data: [games[0].dealRating, games[1].dealRating, games[2].dealRating, games[3].dealRating, games[4].dealRating],
+                    data: [games[0].normalPrice, games[1].normalPrice, games[2].normalPrice, games[3].normalPrice, games[4].normalPrice],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -135,7 +135,7 @@ function pesquisaJogo(){
                 labels: ['loja 1', 'loja 2', 'loja 3', 'loja 4', 'loja 5',],
                 datasets: [{
                     label: namejson,
-                    data: [games[0].dealRating, games[1].dealRating, games[2].dealRating, games[3].dealRating, games[4].dealRating],
+                    data: [games[0].normalPrice, games[1].normalPrice, games[2].normalPrice, games[3].normalPrice, games[4].normalPrice],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -164,14 +164,13 @@ function pesquisaJogo(){
             }
 
         });
-
+        namejson = gamename
     })
 
 var classes = ["line-chart", "bar-chart", "radar-chart", "doughnut-chart"]
 
 function geraGraphCard() {
     
-    var nomeJogo = gamename
     var ids = ["myChart1", "myChart2", "myChart3", "myChart4"]
     var container = document.getElementById(`gridGraphs`)
     container.innerHTML = ""
