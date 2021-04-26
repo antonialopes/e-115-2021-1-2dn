@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"> <!--content="IE=edge"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
+    <title>Gráficos</title>
+</head>
+<body id="back">
+    <header>
+        <div id="caixa">
+            <label for="select" class="text-white">Escolha a Moeda Desejada :</label>
+            <select name="" id="select" class="btn btn-outline-secondary dropdown-toggle">
+                <option value="">Selecione Aqui</option>
+                <option value="">Dólar</option>
+                <option value="">Euro</option>
+                <option value="">BitCoin</option>
+                <option value="">LiteCoin</option>
+                <option value="">Peso Argentino</option>
+                <option value="">Iene Japonês</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <div class="container p-3 my-3 text-white"><canvas id="Grafico1"></canvas></div>
+        <div class="container p-3 my-3 text-white"><canvas id="Grafico2"></canvas></div>
+        <div class="container p-3 my-3 text-white"><canvas id="Grafico3"></canvas></div>
+        <div class="container p-3 my-3 text-white"><canvas id="Grafico4"></canvas></div>
+    </main>
+    <Footer>
+       <div id="reload"><p><a href="" onclick="location.reload()" id="select" class="btn btn-outline-secondary">Clique aqui para Mudar de Moeda</a></p></div> 
+    </Footer>
+</body>
+<script src="js/main.js"></script>
+</html>
