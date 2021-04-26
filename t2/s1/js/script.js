@@ -9,7 +9,7 @@ function recebeValor() {
 	//Este valor é passado na URL com nossa chave que permite mil requisições
 	// Apos isso chamamos o metodo extrator de Filmes.	
 	var buscaFilme = document.getElementById("busca-termo").value
-	url = `http://www.omdbapi.com/?s=${buscaFilme}&apikey=d93ed787`	
+	url = `https://www.omdbapi.com/?s=${buscaFilme}&apikey=d93ed787`	
 	extratorIdFilmes()
 }
 
@@ -48,7 +48,7 @@ function buscaFilmesById(){
 	// Chamamos o método verificaAtributos para coletar as informações.
 	// Para mostrarmos os catalagos pegamos a propriedade POSTER e inserimos colocando a cada filme encontrado.
 	for(var i = 0; i < arrayFilmesId.length; i++) {		
-		var buscaFilmesId = `http://www.omdbapi.com/?i=${arrayFilmesId[i]}&apikey=d93ed787`		
+		var buscaFilmesId = `https://www.omdbapi.com/?i=${arrayFilmesId[i]}&apikey=d93ed787`		
 		fetch(buscaFilmesId)
 			.then(response => response.json())
 			.then(data => {
