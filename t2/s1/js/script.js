@@ -148,7 +148,7 @@ function recebeTitulos() {
 function buscaFilmesByTitulos(){
 	/* Busca a informação no site pelo titulo */
 	for(var i = 0; i < buscaFilme.length; i++) {
-		var buscaFilmesId = `http://www.omdbapi.com/?t=${buscaFilme[i]}&apikey=d93ed787`
+		var buscaFilmesId = `https://www.omdbapi.com/?t=${buscaFilme[i]}&apikey=d93ed787`
 		console.log(buscaFilmesId)		
 		fetch(buscaFilmesId)
 			.then(response => response.json())
