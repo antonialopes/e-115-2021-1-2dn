@@ -41,6 +41,7 @@ function pesquisaJogo() {
 
                 var nomeJogo = gameName
                 var container = document.getElementById(`gridGraphs`)
+                var limpaTexto = document.getElementById("textoDescritivo").innerHTML = ""
                 container.innerHTML = ""
                 for (let i = 0; i < id.length; i++) {
                     container.innerHTML +=
