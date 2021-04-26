@@ -12,7 +12,6 @@ function pesquisaJogo() {
 
     var url = `https://www.cheapshark.com/api/1.0/deals?title=${gameName}`
 
-    var classes = ["de-linha", "de-barra", "de-radar", "de-donut", "polar"]
     var id = ["myChart1", "myChart2", "myChart3", "myChart4", "myChart5"]
     var types = ["radar", "doughnut", "polarArea", "bar", "line"]
 
