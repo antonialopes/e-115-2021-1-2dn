@@ -12,6 +12,7 @@ function pesquisaJogo() {
 
     var url = `https://www.cheapshark.com/api/1.0/deals?title=${gameName}`
 
+    var classes = ["de-linha", "de-barra", "de-radar", "de-donut", "polar"]
     var id = ["myChart1", "myChart2", "myChart3", "myChart4", "myChart5"]
     var types = ["radar", "doughnut", "polarArea", "bar", "line"]
 
@@ -43,16 +44,16 @@ function pesquisaJogo() {
                 container.innerHTML = ""
                 for (let i = 0; i < id.length; i++) {
                     container.innerHTML +=
-                    `
-                    <div class="col">
-                        <div class="card">
-                            <canvas class="${classes[i]}" id=${id[i]}></canvas>
+                        `
+                <div class="col">
+                    <div class="card">
+                        <canvas class="${classes[i]}" id=${id[i]}></canvas>
                         <div class="card-body">
                             <h5 class="card-title">${nomeJogo}</h5>
                             <p class="card-text">Nesse gráfico ${classes[i]} é mostrado a diferença de preços do jogo ${nomeJogo} em diferentes lojas.</p>
                         </div>
                     </div>
-                    `
+                `
                 }
             }
 
