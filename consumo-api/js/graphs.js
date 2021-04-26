@@ -1,9 +1,9 @@
 var input = document.getElementById("searchGame")
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-    document.getElementById("searchButton").click()
-  }
+input.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("searchButton").click()
+    }
 })
 
 function pesquisaJogo() {
@@ -13,7 +13,7 @@ function pesquisaJogo() {
     if (gameName === "") {
         alert("Por favor, insira o nome de um jogo a ser buscado.")
     }
-    else{
+    else {
         var url = `https://www.cheapshark.com/api/1.0/deals?title=${gameName}`
     }
 
@@ -28,7 +28,7 @@ function pesquisaJogo() {
         .then(response => response.json())
 
         .then(json => {
-            
+
             var games = json;
             if (games.length === 0) {
                 alert("Jogo não encontrado")
@@ -50,24 +50,31 @@ function pesquisaJogo() {
                 var limpaTexto = document.getElementById("textoDescritivo").innerHTML = ""
                 container.innerHTML = ""
                 for (let i = 0; i < id.length; i++) {
-                    container.innerHTML +=
-                        `
-                <div class="col">
-                    <div class="card">
-                        <canvas class="${classes[i]}" id=${id[i]}></canvas>
-                        <div class="card-body">
-                            <h5 class="card-title">${nomeJogo}</h5>
-                            <p class="card-text">Nesse gráfico ${tiposGraficos[i]} é mostrado a diferença de preços do jogo ${nomeJogo} em diferentes lojas.</p>
-                        </div>
-                    </div>
-                `
+                        container.innerHTML +=
+                            `
+                                <div class="col">
+                                    <div class="card">
+                                        <canvas class="${classes[i]}" id=${id[i]}></canvas>
+                                        <div class="card-body">
+                                            <h5 class="card-title">${nomeJogo}</h5>
+                                            <p class="card-text">Nesse gráfico ${tiposGraficos[i]} é mostrado a diferença de preços do jogo ${nomeJogo} em diferentes lojas.</p>
+                                        </div>
+                                    </div>
+                                </div> 
+                            `
                 }
             }
 
-            geraGraphCard()
+            if (games.length > 1) {
+                geraGraphCard()
+            }
+            
+            else{
+                alert("Não foi possivel comparar preços, pois o jogo requisitado está dísponivel em apenas uma loja.")
+            }
+            
 
             for (let i = 0; i < classes.length; i++) {
-
                 if (games.length == 4) {
                     var ctx = document.getElementById(id[i]).getContext('2d');
                     var myChart = new Chart(ctx, {
