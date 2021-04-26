@@ -10,7 +10,12 @@ function pesquisaJogo() {
 
     let gameName = document.getElementById("searchGame").value
 
-    var url = `https://www.cheapshark.com/api/1.0/deals?title=${gameName}`
+    if (gameName === "") {
+        alert("Por favor, insira o nome de um jogo a ser buscado.")
+    }
+    else{
+        var url = `https://www.cheapshark.com/api/1.0/deals?title=${gameName}`
+    }
 
     var classes = ["radar-chart", "donut-chart", "polar-chart", "bar-chart", "line-chart", "pie-chart"]
     var tiposGraficos = ["de radar", "de donut", "polar", "de barras", "de linha", "de pizza"]
