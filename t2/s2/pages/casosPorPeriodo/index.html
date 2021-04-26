@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consumo de API</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+
+</head>
+
+
+<body id="page-top">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="../../">Home</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item"><a class="nav-link js-scroll-trigger " href="../MortesCOVID/">Grafico de Pizza</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger Active" href="../casosPorPeriodo/">Grafico de Linhas</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../casosPorPaises/">Grafico de barras</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-section" id="services">
+    <div class="container">
+      <h2 class="text-center mt-0">Casos no Brasil (Abril 2020 à Abril 2021)</h2>
+      <div class="row">
+        <div class="container col-20 col-lg-20 col-md-20 col-sm-20 canvas">
+          <canvas id="myChart"> </canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer-->
+  <footer class="bg-light py-5">
+    <div class="container grid">
+      <div class="row footer-row justify-content-around">
+        <div class="col-6 col-sm-6 col-md-4 col-lg-1 github">
+          <a href="https://github.com/antonia-lopes" target="_blank">
+            <img src="../../assets/img/GitHub.png" alt="GitHub" class="img-fluid">
+            <p>Antonia</p>
+          </a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-1 github">
+          <a href="https://github.com/Breno-Ramos-dos-Santos" target="_blank">
+            <img src="../../assets/img/GitHub.png" alt="GitHub" class="img-fluid">
+            <p>Breno</p>
+          </a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-1 github">
+          <a href="https://github.com/Douglas-Felipe" target="_blank">
+            <img src="../../assets/img/GitHub.png" alt="GitHub" class="img-fluid">
+            <p>Douglas</p>
+          </a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-1 github">
+          <a href="https://github.com/EdyLucas" target="_blank">
+            <img src="../../assets/img/GitHub.png" alt="GitHub" class="img-fluid">
+            <p>Edy</p>
+          </a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-1 github">
+          <a href="https://github.com/ViniciusBorges-S" target="_blank">
+            <img src="../../assets/img/GitHub.png"" alt="GitHub" class="img-fluid">
+            <p>Vinicius</p>
+          </a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-1 github">
+          <a href="https://github.com/RuthpSilva" target="_blank">
+            <img src="../../assets/img/GitHub.png" alt="GitHub" class="img-fluid">
+            <p>Ruth</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!---------------------- Scripts ---------------------------->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+  <script src="./scripts/index.js"></script>
+
+</body>
+
+</html>
