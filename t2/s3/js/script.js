@@ -1,6 +1,6 @@
 const api = {
     token: '3bd7a88a3c0104e8033b30a86a650975',
-    baseurl: 'http://api.openweathermap.org/data/2.5/',
+    baseurl: 'https://api.openweathermap.org/data/2.5/',
     baseurl2: 'https://api.openweathermap.org/data/2.5/onecall?'
 }
 
@@ -180,7 +180,7 @@ function displayResults(weather) {
 
 
     cidade_nome_dia.textContent = nomeValue
-    imagem.src = `http://openweathermap.org/img/wn/${imgValue}@2x.png`;
+    imagem.src = `https://openweathermap.org/img/wn/${imgValue}@2x.png`;
     desc.textContent = `${descValue}`;
     temp.textContent = `Temperatura ${tempValue}°C`
     buscar.value = "";
@@ -229,7 +229,7 @@ function diasSemana(weather) {
         var camelDiaS = diaSemana[0].toUpperCase() + diaSemana.substr(1).replace('-feira', "");
         /*///////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
         dia.textContent = camelDiaS;
-        img.src = 'http://openweathermap.org/img/wn/' + imgValue + '@2x.png';
+        img.src = 'https://openweathermap.org/img/wn/' + imgValue + '@2x.png';
         desc.textContent = descSValue
         temp.textContent = "Temperatura " + tempSValue + "°C";
     }
